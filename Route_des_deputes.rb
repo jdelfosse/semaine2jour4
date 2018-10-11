@@ -32,7 +32,7 @@ def get_the_email_of_a_townhal_from_its_webpage(url)
 		node = doc.xpath('//div/section/dl/dd[1]/a[@class="email"]')
 		y = 31
 		puts i
-		while node.to_s[y] != "\"" 
+		while node.to_s[y] != "\"" && y < 500
 			y += 1
 		end
 		y -= 1
@@ -41,7 +41,6 @@ def get_the_email_of_a_townhal_from_its_webpage(url)
 		tab3[i] = node.to_s[y..node.to_s.size - 5]
 		i += 1
 	end
-
 	hash = Hash[tab3.zip(tab2)]
 	return hash
 end
